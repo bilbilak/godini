@@ -12,7 +12,7 @@ var setCmd = &cobra.Command{
 	Long:  `Add, enable (uncomment), or modify settings in the INI configuration file`,
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		// TODO
+		internal.Process(internal.SET, args)
 	},
 }
 

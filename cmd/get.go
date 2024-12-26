@@ -12,7 +12,7 @@ var getCmd = &cobra.Command{
 	Long:  `Retrieve settings from the INI configuration file`,
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		// TODO
+		internal.Process(internal.GET, args)
 	},
 }
 

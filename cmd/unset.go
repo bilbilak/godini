@@ -12,7 +12,7 @@ var unsetCmd = &cobra.Command{
 	Long:  `Disable/Reset (comment-out) settings in the INI configuration file`,
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		// TODO
+		internal.Process(internal.UNSET, args)
 	},
 }
 
