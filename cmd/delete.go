@@ -12,7 +12,7 @@ var deleteCmd = &cobra.Command{
 	Long:  `Delete settings from the INI configuration file`,
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		// TODO
+		internal.Process(internal.DELETE, args)
 	},
 }
 
