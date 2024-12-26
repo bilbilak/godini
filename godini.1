@@ -1,0 +1,124 @@
+.TH GODINI 1 "December 2024" "Version 1.0" "Godini Manual"
+.SH NAME
+Godini - INI Configuration Management Tool
+.SH SYNOPSIS
+.B godini
+[options] | <command> [options] <FILE> [SETTING]... [STDIN]
+.SH DESCRIPTION
+Godini is a powerful Command Line Interface (CLI) tool designed for seamless manipulation of configuration files in INI format. It provides comprehensive capabilities to efficiently query, modify, and delete settings within INI structures. Created with precision and flexibility in mind, it serves as an essential tool for automating configuration management and ensuring streamlined operations.
+
+.SH OPTIONS
+.TP
+.B --version
+Display the installed version number.
+.TP
+.B --license
+Display the license name.
+.TP
+.B --help
+Show usage instructions of godini or its commands.
+
+.SH COMMANDS
+.PP
+Godini supports the following commands:
+
+.TP
+.B get
+Retrieve settings from the configuration file.
+
+Options:
+.RS
+.TP
+.B -a, --all
+Apply to all sections.
+.TP
+.B -s, --section
+Apply to the given section.
+.TP
+.B -f, --full
+Show fully qualified keys.
+.RE
+
+.TP
+.B set
+Add, enable (uncomment), or modify settings in the configuration file.
+
+Options:
+.RS
+.TP
+.B -a, --all
+Apply to all sections.
+.TP
+.B -s, --section
+Apply to the given section.
+.RE
+
+.TP
+.B unset
+Disable/Reset (comment-out) settings in the configuration file.
+
+Options:
+.RS
+.TP
+.B -a, --all
+Apply to all sections.
+.TP
+.B -s, --section
+Apply to the given section.
+.RE
+
+.TP
+.B delete
+Delete settings from the configuration file.
+
+Options:
+.RS
+.TP
+.B -a, --all
+Apply to all sections.
+.TP
+.B -s, --section
+Apply to the given section.
+.RE
+
+.SH EXAMPLES
+Retrieve settings from a configuration file:
+.PP
+.EX
+.B godini get ./config.ini hostname [database]password
+.EE
+.PP
+Set the database credentials in respective section:
+.PP
+.EX
+.B godini set ./config.ini --section database name=app <<-EOF
+.B 	host
+.B 	username=root
+.B 	password=secret
+.B EOF
+.EE
+
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+General error.
+.TP
+.B 2
+Invalid arguments or wrong syntax.
+
+.SH AUTHOR
+Written by The Artifex (4r7if3x).
+
+.SH REPORTING BUGS
+Report bugs to https://github.com/bilbilak/godini/issues.
+
+.SH COPYRIGHT
+Copyright © 2024 The Artifex (4r7if3x)
+
+Licensed under General Public License version 3 (GPLv3)
+
+.SH SEE ALSO
+.BR ini (5), config (5), cat (1), grep (1), sed (1), awk (1)
